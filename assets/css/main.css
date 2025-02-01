@@ -542,39 +542,47 @@ section,
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+
 .hero {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  padding: 80px 0;
   display: flex;
+  flex-direction: column; /* Asegura que el contenido se apile */
   align-items: center;
   justify-content: center;
+  text-align: center;
+  padding: 0 20px; /* Reduce el padding vertical */
   overflow: hidden;
 }
-/*
-.hero img {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-*/
-.hero img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
+
+
+/* Estilos generales para el fondo */
+#hero {
+  position: relative;
+  height: 100vh;
+  background: url('../img/hero-bg.jpg') no-repeat center center/cover;
+  background-position: center center; /* Inicia desde el centro */
+  animation: moveBackground 10s infinite linear; /* Animación de movimiento */
 }
 
-@media (max-width: 768px) {
-  .hero {
-    height: 70vh; /* Reduce la altura en móviles para mejor ajuste */
+/* Animación para mover la imagen */
+@keyframes moveBackground {
+  0% {
+    background-position: center center; /* Comienza desde el centro */
+  }
+  50% {
+    background-position: left center; /* Mueve hacia la izquierda */
+  }
+  100% {
+    background-position: center center; /* Regresa al centro */
+  }
+}
+
+/* Para dispositivos más pequeños, ajustamos la imagen */
+@media (max-width: 430px) {
+  #hero {
+    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
   }
 }
 
@@ -590,6 +598,7 @@ section,
   position: relative;
   z-index: 3;
 }
+
 
 .hero h2 {
   margin: 0;
