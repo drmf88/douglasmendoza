@@ -1345,3 +1345,49 @@ section,
 }
 
 
+/*======================================
+//--//-->   CURSOS
+======================================*/
+
+
+#cursos h6 {
+  font-size: 14px; /* Tamaño de fuente para h6 */
+}
+
+#cursos h5 {
+  font-size: 12px; /* Tamaño de fuente para h5 */
+}
+
+#cursos p {
+  font-size: 12px; /* Tamaño de fuente para p */
+}
+
+#cursos span {
+  font-size: 13px; /* Tamaño de fuente para span */
+}
+
+#cursos .post-date {
+  font-size: 13px; /* Ajusta el tamaño de la fuente para el texto y el ícono dentro de post-date */
+}
+
+
+#cursos2 h6 {
+  font-size: 14px; /* Tamaño de fuente para h6 */
+}
+
+#cursos2 h5 {
+  font-size: 12px; /* Tamaño de fuente para h5 */
+}
+
+#cursos2 p {
+  font-size: 12px; /* Tamaño de fuente para p */
+}
+
+#cursos2 span {
+  font-size: 13px; /* Tamaño de fuente para span */
+}
+
+#cursos2 .post-date {
+  font-size: 13px; /* Ajusta el tamaño de la fuente para el texto y el ícono dentro de post-date */
+}
+
