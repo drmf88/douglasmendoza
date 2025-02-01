@@ -551,7 +551,7 @@ section,
   align-items: center;
   justify-content: center;
 }
-
+/*
 .hero img {
   position: absolute;
   inset: 0;
@@ -561,6 +561,16 @@ section,
   object-fit: cover;
   z-index: 1;
 }
+*/
+.hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1; /* Envía la imagen al fondo */
+}
+
 
 .hero:before {
   content: "";
