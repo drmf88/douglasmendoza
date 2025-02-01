@@ -550,6 +550,7 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 /*
 .hero img {
@@ -568,9 +569,14 @@ section,
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 1; /* Envía la imagen al fondo */
+  z-index: 1;
 }
 
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh; /* Reduce la altura en móviles para mejor ajuste */
+  }
+}
 
 .hero:before {
   content: "";
