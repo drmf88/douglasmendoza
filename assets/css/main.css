@@ -1407,10 +1407,6 @@ section,
 //--//-->   BLOG
 ======================================*/
 
-.card-blog {
-  width: 155px; /* Ajusta el ancho */
-}
-
 
 .card-blog .card-body {
   position: relative;
