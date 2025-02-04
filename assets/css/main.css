@@ -325,22 +325,22 @@ h6 {
   transform: rotate(180deg);
 }
 
-.navmenu .dropdown {
+.navmenu .habilidades {
   display: block;
 }
 
-.navmenu .dropdown a,
-.navmenu .dropdown a:focus {
+.navmenu .habilidades a,
+.navmenu .habilidades a:focus {
   color: --nav-dropdown-color;
 }
 
-.navmenu .dropdown a:hover,
-.navmenu .dropdown .active,
-.navmenu .dropdown .active:focus {
+.navmenu .habilidades a:hover,
+.navmenu .habilidades .active,
+.navmenu .habilidades .active:focus {
   color: var(--nav-dropdown-hover-color);
 }
 
-.navmenu .dropdown ul {
+.navmenu .habilidades ul {
   position: static;
   display: none;
   z-index: 99;
@@ -352,11 +352,47 @@ h6 {
   transition: all 0.5s ease-in-out;
 }
 
-.navmenu .dropdown ul ul {
+.navmenu .habilidades ul ul {
   background-color: rgba(33, 37, 41, 0.1);
 }
 
-.navmenu .dropdown>.dropdown-active {
+.navmenu .habilidades>.dropdown-active {
+  display: block;
+  background-color: rgba(33, 37, 41, 0.03);
+}
+
+.navmenu .diplomas {
+  display: block;
+}
+
+.navmenu .habilidades a,
+.navmenu .habilidades a:focus {
+  color: --nav-dropdown-color;
+}
+
+.navmenu .diplomas a:hover,
+.navmenu .diplomas .active,
+.navmenu .diplomas .active:focus {
+  color: var(--nav-dropdown-hover-color);
+}
+
+.navmenu .diplomas ul {
+  position: static;
+  display: none;
+  z-index: 99;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  background-color: var(--nav-dropdown-background-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  box-shadow: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.navmenu .diplomas ul ul {
+  background-color: rgba(33, 37, 41, 0.1);
+}
+
+.navmenu .diplomas>.dropdown-active {
   display: block;
   background-color: rgba(33, 37, 41, 0.03);
 }
@@ -1350,18 +1386,6 @@ section,
 ======================================*/
 
 
-#cursos h6 {
-  font-size: 14px; /* Tamaño de fuente para h6 */
-}
-
-#cursos h5 {
-  font-size: 12px; /* Tamaño de fuente para h5 */
-}
-
-#cursos p {
-  font-size: 12px; /* Tamaño de fuente para p */
-}
-
 #cursos span {
   font-size: 13px; /* Tamaño de fuente para span */
 }
@@ -1371,18 +1395,6 @@ section,
 }
 
 
-#cursos2 h6 {
-  font-size: 14px; /* Tamaño de fuente para h6 */
-}
-
-#cursos2 h5 {
-  font-size: 12px; /* Tamaño de fuente para h5 */
-}
-
-#cursos2 p {
-  font-size: 12px; /* Tamaño de fuente para p */
-}
-
 #cursos2 span {
   font-size: 13px; /* Tamaño de fuente para span */
 }
@@ -1390,4 +1402,37 @@ section,
 #cursos2 .post-date {
   font-size: 13px; /* Ajusta el tamaño de la fuente para el texto y el ícono dentro de post-date */
 }
+
+/*======================================
+//--//-->   BLOG
+======================================*/
+
+.card-blog {
+  width: 155px; /* Ajusta el ancho */
+}
+
+
+.card-blog .card-body {
+  position: relative;
+}
+
+.card-blog .category {
+  text-align: center;
+  font-size: 12px;
+}
+.card-blog .card-title {
+  text-align: center;
+  font-size: 12px;
+}
+
+.card-blog .card-description {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+
+
+
 
