@@ -220,6 +220,17 @@
     $$('.xp-logo img, .zoomable').forEach((img) => {
       img.addEventListener('click', () => openModal(img.src, img.alt));
     });
+    
+    // Abrir con click en botones que ya tenés (.js-lightbox)
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.js-lightbox');
+      if (!btn) return;
+    
+      const src = btn.dataset.src;
+      const alt = btn.dataset.alt || 'Imagen';
+      openModal(src, alt);
+    });
+
 
     // Cerrar con X
     closeBtn.addEventListener('click', closeModal);
@@ -299,10 +310,10 @@
       if (e.key !== 'Escape') return;
 
       // 1) Lightbox
-      if (deps.lightbox?.isOpen?.()) {
+      /*if (deps.lightbox?.isOpen?.()) {
         deps.lightbox.closeLightbox();
         return;
-      }
+      }*/
 
       // 2) Modal de imagen
       if (deps.imageModal?.isOpen?.()) {
@@ -322,14 +333,15 @@
     initYear();
 
     const mobileNav = initMobileNav();     // devuelve { closeMobileNav }
-    const lightbox = initLightbox();       // devuelve { isOpen, closeLightbox }
+    /*const lightbox = initLightbox();       // devuelve { isOpen, closeLightbox }*/
     const imageModal = initImageModal();   // devuelve { isOpen, closeModal }
 
     initCertTabs();
     initKickerDynamic();
     initH1Typing();
 
-    initGlobalEscapeHandlers({ mobileNav, lightbox, imageModal });
+    /*initGlobalEscapeHandlers({ mobileNav, lightbox, imageModal });*/
+    initGlobalEscapeHandlers({ mobileNav, imageModal });
   }
 
   // Si usás <script defer>, DOMContentLoaded igual es seguro.
