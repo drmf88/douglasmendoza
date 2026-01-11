@@ -15,13 +15,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RNZYD51GQZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RNZYD51GQZ');
+  </script>
 
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="canonical" href="https://menfig.com/">
 
   <title>Douglas Mendoza | Soporte de Aplicaciones & IT Operations | Ingeniería de Perforación y Geonavegación</title>
   <meta name="description" content="Especialista en soporte funcional y técnico, implementación y deploy, infraestructura y SysAdmin, bases de datos, monitoreo y automatización, con background en ingeniería de perforación y geonavegación." />
-
 
   <!-- =====================================================
        Open Graph (preview redes)
@@ -31,7 +38,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://menfig.com/" />
   <meta property="og:image" content="https://menfig.com/assets/img/og-image.png" />
-  
+
   <!-- =====================================================
        Fonts / CSS
   ====================================================== -->
@@ -41,49 +48,77 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
+
 <body>
   <!-- Accesibilidad: salto al contenido -->
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <!-- =====================================================
+<!-- =====================================================
        Header / Navegación
   ====================================================== -->
   <header class="site-header">
     <div class="container header-inner">
       <!-- Marca -->
-      <a class="brand" href="#hero" aria-label="Inicio">
+      <a class="brand" href="#hero" aria-label="Inicio" data-i18n-attr="aria-label:brand_inicio_label">
         <span class="brand-logo">DM</span>
         <span class="brand-text">Douglas Mendoza</span>
       </a>
 
       <!-- Navegación Desktop -->
-      <nav class="nav nav-desktop" aria-label="Navegación principal">
-        <a href="#hero">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#experiencia">Experiencia</a>
-        <a href="#skills">Habilidades</a>
-        <a href="#certificaciones">Certificaciones</a>
-        <a href="#educacion">Educación</a>
-        <a class="btn btn-small" href="#contacto">Contacto</a>
+      <nav class="nav nav-desktop" aria-label="Navegación principal" data-i18n-attr="aria-label:nav_aria_desktop">
+        <a href="#hero" data-i18n="nav_inicio">Inicio</a>
+        <a href="#servicios" data-i18n="nav_servicios">Servicios</a>
+        <a href="#proyectos" data-i18n="nav_proyectos">Proyectos</a>
+        <a href="#experiencia" data-i18n="nav_experiencia">Experiencia</a>
+        <a href="#skills" data-i18n="nav_habilidades">Habilidades</a>
+        <a href="#certificaciones" data-i18n="nav_certs">Certificaciones</a>
+        <a href="#educacion" data-i18n="nav_edu">Educación</a>
+        <a class="btn btn-small" href="#contacto" data-i18n="nav_contacto">Contacto</a>
       </nav>
-    
+
+      <!-- Cambiar idioma Desktop -->
+      <div class="lang">
+        <button class="btn btn-small btn-ghost lang-btn"
+                type="button"
+                aria-haspopup="listbox"
+                aria-label="Cambiar idioma"
+                data-i18n-attr="aria-label:lang_btn_aria">
+          ES
+        </button>
+        <div class="lang-menu" role="listbox" aria-label="Idiomas" data-i18n-attr="aria-label:lang_menu_aria">
+          <!-- Los nombres de idioma se suelen dejar fijos -->
+          <button type="button" class="lang-item" data-lang="es">Español</button>
+          <button type="button" class="lang-item" data-lang="en">English</button>
+          <button type="button" class="lang-item" data-lang="pt-BR">Português (BR)</button>
+        </div>
+      </div>
+
       <!-- Navegación Mobile (details/summary) -->
       <details class="nav-mobile" id="navMobile">
-        <summary class="btn btn-small btn-ghost" aria-label="Abrir menú">
-          ☰ Menú
+        <summary class="btn btn-small btn-ghost" aria-label="Abrir menú" data-i18n-attr="aria-label:nav_open_menu_aria">
+          ☰ <span data-i18n="nav_menu">Menú</span>
         </summary>
-      
-        <nav class="nav-panel" aria-label="Menú móvil">
-          <a href="#hero">Inicio</a>
-          <a href="#servicios">Servicios</a>
-          <a href="#proyectos">Proyectos</a>
-          <a href="#experiencia">Experiencia</a>
-          <a href="#skills">Habilidades</a>
-          <a href="#certificaciones">Certificaciones</a>
-          <a href="#educacion">Educación</a>
-          <a class="btn btn-small" href="#contacto">Contacto</a>
+
+        <nav class="nav-panel" aria-label="Menú móvil" data-i18n-attr="aria-label:nav_aria_mobile">
+          <a href="#hero" data-i18n="nav_inicio">Inicio</a>
+          <a href="#servicios" data-i18n="nav_servicios">Servicios</a>
+          <a href="#proyectos" data-i18n="nav_proyectos">Proyectos</a>
+          <a href="#experiencia" data-i18n="nav_experiencia">Experiencia</a>
+          <a href="#skills" data-i18n="nav_habilidades">Habilidades</a>
+          <a href="#certificaciones" data-i18n="nav_certs">Certificaciones</a>
+          <a href="#educacion" data-i18n="nav_edu">Educación</a>
+          <a class="btn btn-small" href="#contacto" data-i18n="nav_contacto">Contacto</a>
         </nav>
+
+        <!-- Cambiar idioma Mobile -->
+        <div class="lang lang-mobile">
+          <p class="muted small" style="margin:6px 10px 0;">
+            <span data-i18n="lang_label">Idioma</span>
+          </p>
+          <button type="button" class="lang-item" data-lang="es">Español</button>
+          <button type="button" class="lang-item" data-lang="en">English</button>
+          <button type="button" class="lang-item" data-lang="pt-BR">Português (BR)</button>
+        </div>
       </details>
     </div>
   </header>
@@ -98,39 +133,51 @@
     ========================== -->
     <section id="hero" class="hero">
       <div class="hero-bg" aria-hidden="true"></div>
-      
+
       <div class="container hero-grid">
         <!-- Texto principal -->
         <div class="hero-copy">
           <p class="kicker">
             <span class="kicker-static"></span>
+
             <span class="kicker-dynamic" aria-live="polite">
-              <span class="kicker-word">Apps · Administración · Implementación · Soporte Funcional</span>
+              <span class="kicker-word"
+                    data-i18n="kicker_0"
+                    data-i18n-data="kickerList:kicker_list">
+                Apps · Administración · Implementación · Soporte Funcional
+              </span>
             </span>
+
             <span class="kicker-static"></span>
           </p>
 
           <h1>
-            <span class="h1-typing">
+            <span class="h1-typing" data-i18n="hero_h1">
               Infraestructura estable, procesos claros y menos incidentes en operaciones críticas.
             </span>
           </h1>
 
-          <p class="lead">
+          <p class="lead" data-i18n="hero_lead">
             Soy Ingeniero Geólogo con experiencia en Oil & Gas, especializado en la integración de tecnología y operaciones.
-          He trabajado en entornos de producción administrando e implementando soluciones de IT, automatización y soporte
-          de infraestructuras críticas, contribuyendo a la eficiencia y continuidad de procesos de perforación,
-          desarrollo y operación.
+            He trabajado en entornos de producción administrando e implementando soluciones de IT, automatización y soporte
+            de infraestructuras críticas, contribuyendo a la eficiencia y continuidad de procesos de perforación,
+            desarrollo y operación.
           </p>
 
           <div class="hero-cta">
-            <a class="btn" href="#contacto">Contactarme</a>
-            <a class="btn btn-ghost" href="assets/pdf/CV_DOUGLAS-MENDOZA.pdf" download>Descargar CV (PDF)</a>
+            <a class="btn" href="#contacto" data-i18n="hero_cta_contacto">Contactarme</a>
+
+            <a class="btn btn-ghost"
+               href="assets/pdf/CV_DOUGLAS-MENDOZA.pdf"
+               download
+               data-i18n="hero_cta_cv">Descargar CV (PDF)</a>
           </div>
         </div>
 
         <!-- Card de perfil -->
-        <aside class="hero-card" aria-label="Perfil">
+        <aside class="hero-card"
+               aria-label="Perfil"
+               data-i18n-attr="aria-label:hero_profile_aria">
           <div class="card profile-card">
             <div class="profile-top">
               <img class="avatar zoomable"
@@ -138,39 +185,55 @@
                    alt="Foto de Douglas Mendoza"
                    width="140"
                    height="140"
-                   loading="eager" />
+                   loading="eager"
+                   data-i18n-attr="alt:hero_avatar_alt" />
 
               <div>
                 <h2 class="profile-name">Douglas Mendoza</h2>
-                <p class="profile-meta small muted">Neuquén, Argentina · Inglés B1</p>
+                <p class="profile-meta small muted" data-i18n="hero_profile_meta">
+                  Neuquén, Argentina · Inglés B1
+                </p>
               </div>
             </div>
 
             <div class="divider" role="separator" aria-hidden="true"></div>
 
             <ul class="mini-list">
-              <li><span class="muted">Actual:</span> Soporte de Aplicaciones Upstream</li>
-              <li><span class="muted">DB:</span> Oracle + MS SQL Server</li>
-              <li><span class="muted">Automatización:</span> Python + PowerShell</li>
+              <li>
+                <span class="muted" data-i18n="hero_mini_actual_label">Actual:</span>
+                <span data-i18n="hero_mini_actual_value">Soporte de Aplicaciones Upstream</span>
+              </li>
+              <li>
+                <span class="muted" data-i18n="hero_mini_db_label">DB:</span>
+                <span data-i18n="hero_mini_db_value">Oracle + MS SQL Server</span>
+              </li>
+              <li>
+                <span class="muted" data-i18n="hero_mini_auto_label">Automatización:</span>
+                <span data-i18n="hero_mini_auto_value">Python + PowerShell</span>
+              </li>
             </ul>
 
             <div class="divider" role="separator" aria-hidden="true"></div>
 
             <div class="card-actions">
               <a class="btn btn-small"
-                 href="https://www.linkedin.com/in/douglas-mendoza-figueredo/" 
-                 target="_blank" rel="noreferrer">LinkedIn</a>
-            
-              <a class="btn btn-small btn-ghost" 
-                 href="mailto:douglasmendoza88@gmail.com">Email</a>
-            
-              <a class="btn btn-small btn-ghost" 
-                 href="https://wa.me/5492995300095" 
-                 target="_blank" rel="noreferrer">WhatsApp</a>
-            
-              <a class="btn btn-small btn-ghost" 
-                 href="https://github.com/drmf88" 
-                 target="_blank" rel="noreferrer">GitHub</a>
+                 href="https://www.linkedin.com/in/douglas-mendoza-figueredo/"
+                 target="_blank" rel="noreferrer"
+                 data-i18n="hero_btn_linkedin">LinkedIn</a>
+
+              <a class="btn btn-small btn-ghost"
+                 href="mailto:douglasmendoza88@gmail.com"
+                 data-i18n="hero_btn_email">Email</a>
+
+              <a class="btn btn-small btn-ghost"
+                 href="https://wa.me/5492995300095"
+                 target="_blank" rel="noreferrer"
+                 data-i18n="hero_btn_whatsapp">WhatsApp</a>
+
+              <a class="btn btn-small btn-ghost"
+                 href="https://github.com/drmf88"
+                 target="_blank" rel="noreferrer"
+                 data-i18n="hero_btn_github">GitHub</a>
             </div>
 
             <p class="small muted note"><!-- Nota opcional --></p>
@@ -185,125 +248,125 @@
     <section id="servicios" class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Servicios</h2>
-          <p class="muted">
+          <h2 data-i18n="sec_servicios">Servicios</h2>
+          <p class="muted" data-i18n="sec_servicios_desc">
             Experiencia real en operación, estabilidad y continuidad de sistemas críticos
             en entornos de Oil & Gas, producción y TI corporativa.
           </p>
         </div>
-      
+
         <div class="grid-4">
-        <!-- 1 -->
-        <article class="card service-card">
-          <h3>Soporte de Apps (Oil & Gas)</h3>
-          <p class="muted">
-            Soporte funcional y técnico de aplicaciones críticas para operaciones de pozos,
-            asegurando continuidad, estabilidad y correcta adopción por los usuarios.
-          </p>
-          <ul class="list">
-            <li>OpenWells, Autosync, Data Analyzer, Profile</li>
-            <li>RTIC: StarSteer, Corva, Pason</li>
-            <li>Capacitación, gestión de incidentes y continuidad</li>
-          </ul>
-        </article>
+          <!-- 1 -->
+          <article class="card service-card">
+            <h3 data-i18n="srv1_title">Soporte de Apps (Oil & Gas)</h3>
+            <p class="muted" data-i18n="srv1_desc">
+              Soporte funcional y técnico de aplicaciones críticas para operaciones de pozos,
+              asegurando continuidad, estabilidad y correcta adopción por los usuarios.
+            </p>
+            <ul class="list">
+              <li data-i18n="srv1_li1">OpenWells, Autosync, Data Analyzer, Profile</li>
+              <li data-i18n="srv1_li2">RTIC: StarSteer, Corva, Pason</li>
+              <li data-i18n="srv1_li3">Capacitación, gestión de incidentes y continuidad</li>
+            </ul>
+          </article>
 
-        <!-- 2 -->
-        <article class="card service-card">
-          <h3>Implementación & Deploy</h3>
-          <p class="muted">
-            Puesta en producción de aplicaciones y servicios, controlando configuración,
-            estabilidad y resolución de incidencias post go-live.
-          </p>
-          <ul class="list">
-            <li>Tomcat, Nginx, IIS, Apache, cPanel</li>
-            <li>Releases, validación, rollback y troubleshooting</li>
-            <li>Ambientes Test/Prod, parametrización y soporte</li>
-          </ul>
-        </article>
+          <!-- 2 -->
+          <article class="card service-card">
+            <h3 data-i18n="srv2_title">Implementación & Deploy</h3>
+            <p class="muted" data-i18n="srv2_desc">
+              Puesta en producción de aplicaciones y servicios, controlando configuración,
+              estabilidad y resolución de incidencias post go-live.
+            </p>
+            <ul class="list">
+              <li data-i18n="srv2_li1">Tomcat, Nginx, IIS, Apache, cPanel</li>
+              <li data-i18n="srv2_li2">Releases, validación, rollback y troubleshooting</li>
+              <li data-i18n="srv2_li3">Ambientes Test/Prod, parametrización y soporte</li>
+            </ul>
+          </article>
 
-        <!-- 3 -->
-        <article class="card service-card">
-          <h3>Soporte IT & Admin (AD / M365)</h3>
-          <p class="muted">
-            Administración de dominio, correo y soporte IT a usuarios,
-            garantizando operación diaria y continuidad del negocio.
-          </p>
-          <ul class="list">
-            <li>Active Directory, GPOs, permisos y accesos</li>
-            <li>Microsoft 365 / Exchange: cuentas y troubleshooting</li>
-            <li>Soporte a PyMEs y grandes empresas (remoto / onsite)</li>
-          </ul>
-        </article>
+          <!-- 3 -->
+          <article class="card service-card">
+            <h3 data-i18n="srv3_title">Soporte IT & Admin (AD / M365)</h3>
+            <p class="muted" data-i18n="srv3_desc">
+              Administración de dominio, correo y soporte IT a usuarios,
+              garantizando operación diaria y continuidad del negocio.
+            </p>
+            <ul class="list">
+              <li data-i18n="srv3_li1">Active Directory, GPOs, permisos y accesos</li>
+              <li data-i18n="srv3_li2">Microsoft 365 / Exchange: cuentas y troubleshooting</li>
+              <li data-i18n="srv3_li3">Soporte a PyMEs y grandes empresas (remoto / onsite)</li>
+            </ul>
+          </article>
 
-        <!-- 4 -->
-        <article class="card service-card">
-          <h3>Infraestructura & SysAdmin</h3>
-          <p class="muted">
-            Gestión de infraestructura on-premises y cloud,
-            enfocada en disponibilidad, seguridad básica y continuidad operativa.
-          </p>
-          <ul class="list">
-            <li>Windows Server / Linux (on-premises y cloud)</li>
-            <li>Firewall, VPN, acceso remoto y networking</li>
-            <li>Parches, hardening básico y backups</li>
-          </ul>
-        </article>
+          <!-- 4 -->
+          <article class="card service-card">
+            <h3 data-i18n="srv4_title">Infraestructura & SysAdmin</h3>
+            <p class="muted" data-i18n="srv4_desc">
+              Gestión de infraestructura on-premises y cloud,
+              enfocada en disponibilidad, seguridad básica y continuidad operativa.
+            </p>
+            <ul class="list">
+              <li data-i18n="srv4_li1">Windows Server / Linux (on-premises y cloud)</li>
+              <li data-i18n="srv4_li2">Firewall, VPN, acceso remoto y networking</li>
+              <li data-i18n="srv4_li3">Parches, hardening básico y backups</li>
+            </ul>
+          </article>
 
-        <!-- 5 -->
-        <article class="card service-card">
-          <h3>Databases & Performance</h3>
-          <p class="muted">
-            Administración y optimización de bases de datos,
-            asegurando performance, integridad y acceso controlado a la información.
-          </p>
-          <ul class="list">
-            <li>Oracle, SQL Server, MySQL</li>
-            <li>Roles, permisos, backups y accesos</li>
-            <li>Optimización de queries, SPs y triggers</li>
-          </ul>
-        </article>
+          <!-- 5 -->
+          <article class="card service-card">
+            <h3 data-i18n="srv5_title">Databases & Performance</h3>
+            <p class="muted" data-i18n="srv5_desc">
+              Administración y optimización de bases de datos,
+              asegurando performance, integridad y acceso controlado a la información.
+            </p>
+            <ul class="list">
+              <li data-i18n="srv5_li1">Oracle, SQL Server, MySQL</li>
+              <li data-i18n="srv5_li2">Roles, permisos, backups y accesos</li>
+              <li data-i18n="srv5_li3">Optimización de queries, SPs y triggers</li>
+            </ul>
+          </article>
 
-        <!-- 6 -->
-        <article class="card service-card">
-          <h3>Observabilidad & Monitoreo</h3>
-          <p class="muted">
-            Monitoreo de aplicaciones e infraestructura para detección temprana
-            de incidentes y análisis de causa raíz.
-          </p>
-          <ul class="list">
-            <li>Dashboards en Grafana</li>
-            <li>Nagios XI, alertas y métricas</li>
-            <li>Análisis de logs y RCA básico</li>
-          </ul>
-        </article>
+          <!-- 6 -->
+          <article class="card service-card">
+            <h3 data-i18n="srv6_title">Observabilidad & Monitoreo</h3>
+            <p class="muted" data-i18n="srv6_desc">
+              Monitoreo de aplicaciones e infraestructura para detección temprana
+              de incidentes y análisis de causa raíz.
+            </p>
+            <ul class="list">
+              <li data-i18n="srv6_li1">Dashboards en Grafana</li>
+              <li data-i18n="srv6_li2">Nagios XI, alertas y métricas</li>
+              <li data-i18n="srv6_li3">Análisis de logs y RCA básico</li>
+            </ul>
+          </article>
 
-        <!-- 7 -->
-        <article class="card service-card">
-          <h3>Automatización & Scripting</h3>
-          <p class="muted">
-            Desarrollo de automatizaciones y herramientas internas
-            para mejorar eficiencia operativa y reducir errores manuales.
-          </p>
-          <ul class="list">
-            <li>Python (PySide6, pandas), PowerShell, Bash</li>
-            <li>ETL liviano, reportes y scripts</li>
-            <li>Herramientas internas a medida</li>
-          </ul>
-        </article>
+          <!-- 7 -->
+          <article class="card service-card">
+            <h3 data-i18n="srv7_title">Automatización & Scripting</h3>
+            <p class="muted" data-i18n="srv7_desc">
+              Desarrollo de automatizaciones y herramientas internas
+              para mejorar eficiencia operativa y reducir errores manuales.
+            </p>
+            <ul class="list">
+              <li data-i18n="srv7_li1">Python (PySide6, pandas), PowerShell, Bash</li>
+              <li data-i18n="srv7_li2">ETL liviano, reportes y scripts</li>
+              <li data-i18n="srv7_li3">Herramientas internas a medida</li>
+            </ul>
+          </article>
 
-        <!-- 8 -->
-        <article class="card service-card">
-          <h3>Drilling & Geonavegación</h3>
-          <p class="muted">
-            Asesoramiento técnico en perforación y workover, enfocado en optimización de tiempos,
-            costos y ejecución operativa en campo.
-          </p>
-          <ul class="list">
-            <li>Programas operativos de perforación y workover</li>
-            <li>Diseño de trayectorias, geonavegación y simulaciones</li>
-            <li>Tiempos, costos AFE, KPIs, NPT y performance</li>
-          </ul>
-        </article>
+          <!-- 8 -->
+          <article class="card service-card">
+            <h3 data-i18n="srv8_title">Drilling & Geonavegación</h3>
+            <p class="muted" data-i18n="srv8_desc">
+              Asesoramiento técnico en perforación y workover, enfocado en optimización de tiempos,
+              costos y ejecución operativa en campo.
+            </p>
+            <ul class="list">
+              <li data-i18n="srv8_li1">Programas operativos de perforación y workover</li>
+              <li data-i18n="srv8_li2">Diseño de trayectorias, geonavegación y simulaciones</li>
+              <li data-i18n="srv8_li3">Tiempos, costos AFE, KPIs, NPT y performance</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
@@ -314,8 +377,8 @@
     <section id="proyectos" class="section alt">
       <div class="container">
         <div class="section-head">
-          <h2>Proyectos</h2>
-          <p class="muted">
+          <h2 data-i18n="sec_proyectos">Proyectos</h2>
+          <p class="muted" data-i18n="sec_proyectos_desc">
             Soluciones reales desarrolladas y operadas en entornos productivos.
             Automatización, monitoreo y herramientas orientadas a reducir incidentes
             y mejorar la eficiencia operativa.
@@ -325,83 +388,87 @@
         <div class="grid-3">
           <!-- Proyecto 1 -->
           <article class="card project">
-            <div class="tag">Automatización</div>
-            <h3>Aplicación de escritorio de soporte</h3>
+            <div class="tag" data-i18n="proj1_tag">Automatización</div>
+            <h3 data-i18n="proj1_title">Aplicación de escritorio de soporte</h3>
             <ul class="list">
-              <li>Automatiza tareas repetitivas y consultas a múltiples fuentes.</li>
-              <li>Centraliza bases y utilidades en una sola interfaz para el equipo de soporte.</li>
-              <li>Enfoque en estabilidad: menos pasos manuales y menos errores operativos.</li>
+              <li data-i18n="proj1_li1">Automatiza tareas repetitivas y consultas a múltiples fuentes.</li>
+              <li data-i18n="proj1_li2">Centraliza bases y utilidades en una sola interfaz para el equipo de soporte.</li>
+              <li data-i18n="proj1_li3">Enfoque en estabilidad: menos pasos manuales y menos errores operativos.</li>
             </ul>
 
             <div class="project-media">
               <button class="thumb js-lightbox"
                       data-src="assets/projects/pcontrol1.png"
-                      data-alt="Captura de la app interna de soporte">
-                <img src="assets/projects/pcontrol1.png" alt="Captura app soporte" loading="lazy">
+                      data-alt="Captura de la app interna de soporte"
+                      data-i18n-data="alt:proj1_img1_alt">
+                <img src="assets/projects/pcontrol1.png" alt="Captura app soporte" loading="lazy" data-i18n-attr="alt:proj1_img1_alt_img">
               </button>
 
               <button class="thumb js-lightbox"
                       data-src="assets/projects/pcontrol2.png"
-                      data-alt="Otra captura de la app interna de soporte">
-                <img src="assets/projects/pcontrol2.png" alt="Captura app soporte 2" loading="lazy">
+                      data-alt="Otra captura de la app interna de soporte"
+                      data-i18n-data="alt:proj1_img2_alt">
+                <img src="assets/projects/pcontrol2.png" alt="Captura app soporte 2" loading="lazy" data-i18n-attr="alt:proj1_img2_alt_img">
               </button>
             </div>
 
             <div class="meta">
-              <span><strong>Stack:</strong> Python · PySide6 · pandas </span>
-              <span><strong>Resultado:</strong> menos tareas manuales</span>
+              <span><strong data-i18n="label_stack">Stack:</strong> Python · PySide6 · pandas</span>
+              <span><strong data-i18n="label_resultado">Resultado:</strong> <span data-i18n="proj1_result">menos tareas manuales</span></span>
             </div>
 
             <div class="actions">
-              <a class="btn btn-small" href="#contacto">Pedir demo</a>
+              <a class="btn btn-small" href="#contacto" data-i18n="proj_cta_demo">Pedir demo</a>
             </div>
-
           </article>
 
           <!-- Proyecto 2 -->
           <article class="card project">
-            <div class="tag">Monitoreo</div>
-            <h3>Dashboard de monitoreo operativo</h3>
-            
+            <div class="tag" data-i18n="proj2_tag">Monitoreo</div>
+            <h3 data-i18n="proj2_title">Dashboard de monitoreo operativo</h3>
+
             <ul class="list">
-              <li>Monitoreo de PCs de operaciones de pozo (Drilling, Workover, Pulling).</li>
-              <li>Métricas y alertas para apps críticas (OpenWells, Autosync, YClick).</li>
-              <li>Detección temprana para reducir incidentes y tiempos de indisponibilidad.</li>
+              <li data-i18n="proj2_li1">Monitoreo de PCs de operaciones de pozo (Drilling, Workover, Pulling).</li>
+              <li data-i18n="proj2_li2">Métricas y alertas para apps críticas (OpenWells, Autosync, YClick).</li>
+              <li data-i18n="proj2_li3">Detección temprana para reducir incidentes y tiempos de indisponibilidad.</li>
             </ul>
 
             <div class="project-media">
               <button class="thumb js-lightbox"
                       data-src="assets/projects/tablero1.png"
-                      data-alt="Dashboard en Grafana">
-                <img src="assets/projects/tablero1.png" alt="Dashboard Grafana" loading="lazy">
+                      data-alt="Dashboard en Grafana"
+                      data-i18n-data="alt:proj2_img1_alt">
+                <img src="assets/projects/tablero1.png" alt="Dashboard Grafana" loading="lazy" data-i18n-attr="alt:proj2_img1_alt_img">
               </button>
 
               <button class="thumb js-lightbox"
                       data-src="assets/projects/tablero2.png"
-                      data-alt="Dashboard en Grafana">
-                <img src="assets/projects/tablero2.png" alt="Dashboard Grafana 2" loading="lazy">
+                      data-alt="Dashboard en Grafana"
+                      data-i18n-data="alt:proj2_img2_alt">
+                <img src="assets/projects/tablero2.png" alt="Dashboard Grafana 2" loading="lazy" data-i18n-attr="alt:proj2_img2_alt_img">
               </button>
             </div>
 
             <div class="meta">
-              <span><strong>Stack:</strong> Grafana · Logs · Alerting </span>
-              <span><strong>Resultado:</strong> detección temprana</span>
+              <span><strong data-i18n="label_stack">Stack:</strong> Grafana · Logs · Alerting</span>
+              <span><strong data-i18n="label_resultado">Resultado:</strong> <span data-i18n="proj2_result">detección temprana</span></span>
             </div>
 
             <div class="actions">
-              <a class="btn btn-small btn-ghost" href="#contacto">Pedir demo</a>
+              <a class="btn btn-small btn-ghost" href="#contacto" data-i18n="proj_cta_demo">Pedir demo</a>
             </div>
           </article>
 
-           <!-- Proyecto 3 -->
+          <!-- Proyecto 3 -->
           <article class="card project">
-            <div class="tag">Demo</div>
-            <p class="muted">Demo breve</p>
+            <div class="tag" data-i18n="proj3_tag">Demo</div>
+            <p class="muted" data-i18n="proj3_desc">Demo breve</p>
 
             <div class="video-wrap">
               <iframe
                 src="https://www.youtube.com/embed/VIDEO_ID"
                 title="Demo del proyecto"
+                data-i18n-attr="title:proj3_iframe_title"
                 loading="lazy"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -409,8 +476,8 @@
             </div>
 
             <div class="meta">
-              <span><strong>Tip:</strong> </span>
-              <span><strong>Resultado:</strong> </span>
+              <span><strong data-i18n="label_tip">Tip:</strong> <span data-i18n="proj3_tip">—</span></span>
+              <span><strong data-i18n="label_resultado">Resultado:</strong> <span data-i18n="proj3_result">—</span></span>
             </div>
           </article>
         </div>
@@ -423,100 +490,100 @@
     <section id="experiencia" class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Experiencia</h2>
-          <p class="muted">
+          <h2 data-i18n="sec_experiencia">Experiencia</h2>
+          <p class="muted" data-i18n="sec_experiencia_desc">
             Mi trayectoria profesional abarca distintas áreas técnicas, desde operaciones en campo hasta tecnología y soporte de aplicaciones, permitiéndome integrar conocimiento operativo con soluciones digitales.
           </p>
         </div>
-      
+
         <div class="timeline">
           <!-- ECONAT -->
           <article class="card timeline-item">
             <div class="xp-header">
               <div class="xp-logo" aria-hidden="true">
-                <img src="assets/img/econat.png" alt="ECONAT logo" loading="lazy">
+                <img src="assets/img/econat.png" alt="ECONAT logo" loading="lazy" data-i18n-attr="alt:xp_econat_logo_alt">
               </div>
-            
+
               <div class="xp-title">
-                <h3>Administración y soporte de aplicaciones</h3>
+                <h3 data-i18n="xp1_title">Administración y soporte de aplicaciones</h3>
                 <div class="xp-meta">
                   <span>ECONAT S.A.</span>
                   <span class="xp-dot">·</span>
-                  <span>Abril 2022 – Actual</span>
+                  <span data-i18n="xp1_dates">Abril 2022 – Actual</span>
                   <span class="xp-dot">·</span>
-                  <span>Remoto</span>
+                  <span data-i18n="xp_remote">Remoto</span>
                   <span class="xp-dot">·</span>
-                  <span>Neuquén, Argentina</span>
+                  <span data-i18n="xp_loc_neuquen_ar">Neuquén, Argentina</span>
                 </div>
               </div>
             </div>
-          
+
             <ul class="list">
-              <li>Despliegue y soporte de aplicaciones de operaciones de pozos (on-prem y cloud).</li>
-              <li>BD Oracle/SQL Server: performance, accesos, scripts SQL (DML/DCL), SP y triggers.</li>
-              <li>Automatización con Python (PySide6), batch y Selenium (flujos en app propia).</li>
-              <li>Observabilidad e incidentes: Grafana + logs + ServiceNow ITCM (Kanban).</li>
-              <li>Soporte y capacitación a usuarios (OpenWells, Autosync, Data Analyzer, Profile, RTIC).</li>
+              <li data-i18n="xp1_li1">Despliegue y soporte de aplicaciones de operaciones de pozos (on-prem y cloud).</li>
+              <li data-i18n="xp1_li2">BD Oracle/SQL Server: performance, accesos, scripts SQL (DML/DCL), SP y triggers.</li>
+              <li data-i18n="xp1_li3">Automatización con Python (PySide6), batch y Selenium (flujos en app propia).</li>
+              <li data-i18n="xp1_li4">Observabilidad e incidentes: Grafana + logs + ServiceNow ITCM (Kanban).</li>
+              <li data-i18n="xp1_li5">Soporte y capacitación a usuarios (OpenWells, Autosync, Data Analyzer, Profile, RTIC).</li>
             </ul>
           </article>
-        
+
           <!-- DOCTEC -->
           <article class="card timeline-item">
             <div class="xp-header">
               <div class="xp-logo" aria-hidden="true">
-                <img src="assets/img/doctec.png" alt="DOCTEC logo" loading="lazy">
+                <img src="assets/img/doctec.png" alt="DOCTEC logo" loading="lazy" data-i18n-attr="alt:xp_doctec_logo_alt">
               </div>
-            
+
               <div class="xp-title">
-                <h3>Sysadmin e implementación de aplicaciones</h3>
+                <h3 data-i18n="xp2_title">Sysadmin e implementación de aplicaciones</h3>
                 <div class="xp-meta">
                   <span>Document Technologies (DOCTEC)</span>
                   <span class="xp-dot">·</span>
-                  <span>Agosto 2021 – Mayo 2024</span>
+                  <span data-i18n="xp2_dates">Agosto 2021 – Mayo 2024</span>
                   <span class="xp-dot">·</span>
-                  <span>Presencial/Remoto</span>
+                  <span data-i18n="xp_on_site_remote">Presencial/Remoto</span>
                   <span class="xp-dot">·</span>
-                  <span>CABA, Argentina</span>
+                  <span data-i18n="xp_loc_caba_ar">CABA, Argentina</span>
                 </div>
               </div>
             </div>
-          
+
             <ul class="list">
-              <li>Linux (Ubuntu) y Windows Server (on-prem/cloud): servicios, firewall, red y acceso remoto.</li>
-              <li>Web/IIS/Apache/Nginx y despliegues con cPanel.</li>
-              <li>Tomcat + MySQL + SQL Server: implementación y mantenimiento (Testing/Prod).</li>
-              <li>Monitoreo con Nagios XI + troubleshooting por logs.</li>
-              <li>Testing y APIs: TestLink + Postman/SoapUI; releases (Mantis/ClickUp).</li>
+              <li data-i18n="xp2_li1">Linux (Ubuntu) y Windows Server (on-prem/cloud): servicios, firewall, red y acceso remoto.</li>
+              <li data-i18n="xp2_li2">Web/IIS/Apache/Nginx y despliegues con cPanel.</li>
+              <li data-i18n="xp2_li3">Tomcat + MySQL + SQL Server: implementación y mantenimiento (Testing/Prod).</li>
+              <li data-i18n="xp2_li4">Monitoreo con Nagios XI + troubleshooting por logs.</li>
+              <li data-i18n="xp2_li5">Testing y APIs: TestLink + Postman/SoapUI; releases (Mantis/ClickUp).</li>
             </ul>
           </article>
-        
+
           <!-- PDVSA -->
           <article class="card timeline-item">
             <div class="xp-header">
               <div class="xp-logo" aria-hidden="true">
-                <img src="assets/img/PDVSA.png" alt="PDVSA logo" loading="lazy">
+                <img src="assets/img/PDVSA.png" alt="PDVSA logo" loading="lazy" data-i18n-attr="alt:xp_pdvsa_logo_alt">
               </div>
-            
+
               <div class="xp-title">
-                <h3>Ingeniero de Perforación</h3>
+                <h3 data-i18n="xp3_title">Ingeniero de Perforación</h3>
                 <div class="xp-meta">
                   <span>Petróleos de Venezuela S.A. (PDVSA)</span>
                   <span class="xp-dot">·</span>
-                  <span>Febrero 2013 – Julio 2017</span>
+                  <span data-i18n="xp3_dates">Febrero 2013 – Julio 2017</span>
                   <span class="xp-dot">·</span>
-                  <span>Presencial</span>
+                  <span data-i18n="xp_on_site">Presencial</span>
                   <span class="xp-dot">·</span>
-                  <span>Monagas, Venezuela</span>
+                  <span data-i18n="xp_loc_monagas_ve">Monagas, Venezuela</span>
                 </div>
               </div>
             </div>
-          
+
             <ul class="list">
-              <li>Diseño y replanificación de trayectorias de pozos direccionales (Compass / Landmark).</li>
-              <li>Simulación de torque, drag, hidráulica y cementación para optimizar la perforación.</li>
-              <li>Elaboración de procedimientos operativos de perforación y workover.</li>
-              <li>Estimación de tiempos y costos (AFE) y control de ejecución en campo.</li>
-              <li>Análisis de KPIs y NPT para seguimiento del desempeño operativo.</li>
+              <li data-i18n="xp3_li1">Diseño y replanificación de trayectorias de pozos direccionales (Compass / Landmark).</li>
+              <li data-i18n="xp3_li2">Simulación de torque, drag, hidráulica y cementación para optimizar la perforación.</li>
+              <li data-i18n="xp3_li3">Elaboración de procedimientos operativos de perforación y workover.</li>
+              <li data-i18n="xp3_li4">Estimación de tiempos y costos (AFE) y control de ejecución en campo.</li>
+              <li data-i18n="xp3_li5">Análisis de KPIs y NPT para seguimiento del desempeño operativo.</li>
             </ul>
           </article>
         </div>
@@ -529,49 +596,51 @@
     <section id="skills" class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Habilidades</h2>
-          <p class="muted">Tecnologías, herramientas y conocimientos aplicados en entornos productivos y operativos.</p>
+          <h2 data-i18n="sec_habilidades">Habilidades</h2>
+          <p class="muted" data-i18n="sec_habilidades_desc">Tecnologías, herramientas y conocimientos aplicados en entornos productivos y operativos.</p>
         </div>
-      
+
         <!-- Tecnologías -->
         <div class="skills-block">
-          <h3 class="skills-title">Tecnologías & IT</h3>
+          <h3 class="skills-title" data-i18n="skills_it_title">Tecnologías & IT</h3>
           <div class="skills-group">
+            <!-- Pills técnicas: no se traducen -->
             <span class="pill highlight">Linux</span>
             <span class="pill highlight">Windows</span>
             <span class="pill highlight">SQL Server</span>
             <span class="pill highlight">MySQL</span>
             <span class="pill highlight">Oracle</span>
-          
+
             <span class="pill">Python</span>
             <span class="pill">Bash</span>
             <span class="pill">PowerShell</span>
             <span class="pill">Batch</span>
-          
+
             <span class="pill">Nagios</span>
             <span class="pill">Grafana</span>
             <span class="pill">Power BI</span>
-          
+
             <span class="pill">Tomcat</span>
             <span class="pill">Nginx</span>
             <span class="pill">IIS</span>
             <span class="pill">cPanel</span>
-          
+
             <span class="pill">VirtualBox</span>
             <span class="pill">VMware</span>
             <span class="pill">Azure</span>
             <span class="pill">AWS</span>
-          
+
             <span class="pill">Postman</span>
             <span class="pill">SoapUI</span>
             <span class="pill">TestLink</span>
           </div>
         </div>
-      
+
         <!-- Geociencias e Ingeniería -->
         <div class="skills-block">
-          <h3 class="skills-title">Geociencias e Ingeniería</h3>
+          <h3 class="skills-title" data-i18n="skills_geo_title">Geociencias e Ingeniería</h3>
           <div class="skills-group">
+            <!-- Pills técnicas: no se traducen -->
             <span class="pill">Petrel</span>
             <span class="pill">Starsteer</span>
             <span class="pill">DrillWorks</span>
@@ -590,12 +659,12 @@
             <span class="pill">WellCat</span>
           </div>
         </div>
-      
+
         <!-- Metodologías -->
         <div class="skills-block">
-          <h3 class="skills-title">Metodologías</h3>
+          <h3 class="skills-title" data-i18n="skills_methods_title">Metodologías</h3>
           <div class="skills-group">
-            <span class="pill">Agile (Scrum, Kanban, SAFe)</span>
+            <span class="pill" data-i18n="skills_methods_agile">Agile (Scrum, Kanban, SAFe)</span>
             <span class="pill">TPS</span>
             <span class="pill">OKR</span>
             <span class="pill">VCD (FEL 1-3)</span>
@@ -604,10 +673,10 @@
 
         <!-- Idiomas -->
         <div class="skills-block">
-          <h3 class="skills-title">Idiomas</h3>
+          <h3 class="skills-title" data-i18n="skills_lang_title">Idiomas</h3>
           <div class="skills-group">
-            <span class="pill">Español — Nativo</span>
-            <span class="pill">Inglés — Pre-Intermediate (B1)</span>
+            <span class="pill" data-i18n="skills_lang_es">Español — Nativo</span>
+            <span class="pill" data-i18n="skills_lang_en">Inglés — Pre-Intermediate (B1)</span>
           </div>
         </div>
       </div>
@@ -621,20 +690,20 @@
       <div class="container">
       
         <div class="section-head">
-          <h2>Certificaciones</h2>
-          <p class="muted">
+          <h2 data-i18n="sec_certs">Certificaciones</h2>
+          <p class="muted" data-i18n="sec_certs_desc">
             Formación orientada al fortalecimiento de competencias técnicas y profesionales.
           </p>
         </div>
       
         <!-- TABS -->
-        <div class="cert-tabs" role="tablist">
+        <div class="cert-tabs" role="tablist" data-i18n-attr="aria-label:cert_tabs_aria">
           <button class="cert-tab is-active" data-target="#certs-it" role="tab">
-            Tecnología & IT <span class="pill-count">31</span>
+            <span data-i18n="cert_tab_it">Tecnología & IT</span> <span class="pill-count">31</span>
           </button>
         
           <button class="cert-tab" data-target="#certs-geo" role="tab">
-            Perforación & Geociencia <span class="pill-count">15</span>
+            <span data-i18n="cert_tab_geo">Perforación & Geociencia</span> <span class="pill-count">15</span>
           </button>
         </div>
       
@@ -645,11 +714,12 @@
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec31.png"
-                      data-alt="Curso Práctico de Qt/Pyside: Interfaces Gráficas con Python">
+                      data-alt="Curso Práctico de Qt/Pyside: Interfaces Gráficas con Python"
+                      data-i18n-data="alt:cert_tec31_alt">
                 <img src="assets/certs/tec31.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Qt / PySide</strong>
+                <strong data-i18n="cert_tec31_title">Qt / PySide</strong>
                 <span class="muted small">2025 · 9.5 hrs</span>
               </figcaption>
             </figure>
@@ -657,11 +727,12 @@
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec30.png"
-                      data-alt="Gestión Ágil de Proyectos con Scrum: Curso AGILE">
+                      data-alt="Gestión Ágil de Proyectos con Scrum: Curso AGILE"
+                      data-i18n-data="alt:cert_tec30_alt">
                 <img src="assets/certs/tec30.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Scrum / Agile</strong>
+                <strong data-i18n="cert_tec30_title">Scrum / Agile</strong>
                 <span class="muted small">2025 · 2 hrs</span>
               </figcaption>
             </figure>
@@ -669,355 +740,383 @@
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec29.png"
-                      data-alt="Introducción a C# .NET">
+                      data-alt="Introducción a C# .NET"
+                      data-i18n-data="alt:cert_tec29_alt">
                 <img src="assets/certs/tec29.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>C# .NET</strong>
+                <strong data-i18n="cert_tec29_title">C# .NET</strong>
                 <span class="muted small">2025 · 18 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec28.png"
-                      data-alt="Programación Orientada a Objetos con IA">
+                      data-alt="Programación Orientada a Objetos con IA"
+                      data-i18n-data="alt:cert_tec28_alt">
                 <img src="assets/certs/tec28.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>POO con IA</strong>
+                <strong data-i18n="cert_tec28_title">POO con IA</strong>
                 <span class="muted small">2025 · 12 hrs</span>
               </figcaption>
             </figure>
-            
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec27.png"
-                      data-alt="IA: de Turing a Chatgpt">
+                      data-alt="IA: de Turing a Chatgpt"
+                      data-i18n-data="alt:cert_tec27_alt">
                 <img src="assets/certs/tec27.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>IA</strong>
+                <strong data-i18n="cert_tec27_title">IA</strong>
                 <span class="muted small">2024 · 10 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec26.png"
-                      data-alt="Microsoft Azure Fundamentals (AZ-900T00)">
+                      data-alt="Microsoft Azure Fundamentals (AZ-900T00)"
+                      data-i18n-data="alt:cert_tec26_alt">
                 <img src="assets/certs/tec26.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Azure</strong>
+                <strong data-i18n="cert_tec26_title">Azure</strong>
                 <span class="muted small">2023 · 15 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec25.png"
-                      data-alt="Fundamentos de Programación con SQL Server 2019">
+                      data-alt="Fundamentos de Programación con SQL Server 2019"
+                      data-i18n-data="alt:cert_tec25_alt">
                 <img src="assets/certs/tec25.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>SQL Server Programming</strong>
+                <strong data-i18n="cert_tec25_title">SQL Server Programming</strong>
                 <span class="muted small">2023 · 21 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec24.png"
-                      data-alt="Javascript desde cero">
+                      data-alt="Javascript desde cero"
+                      data-i18n-data="alt:cert_tec24_alt">
                 <img src="assets/certs/tec24.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Javascript</strong>
+                <strong data-i18n="cert_tec24_title">Javascript</strong>
                 <span class="muted small">2023 · 18 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec23.png"
-                      data-alt="Desarrollo Web con HTML">
+                      data-alt="Desarrollo Web con HTML"
+                      data-i18n-data="alt:cert_tec23_alt">
                 <img src="assets/certs/tec23.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Desarrollo Web</strong>
+                <strong data-i18n="cert_tec23_title">Desarrollo Web</strong>
                 <span class="muted small">2023 · 18 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec22.png"
-                      data-alt="Análisis de Datos con Lenguaje R">
+                      data-alt="Análisis de Datos con Lenguaje R"
+                      data-i18n-data="alt:cert_tec22_alt">
                 <img src="assets/certs/tec22.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Lenguaje R</strong>
+                <strong data-i18n="cert_tec22_title">Lenguaje R</strong>
                 <span class="muted small">2023 · 15 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec21.png"
-                      data-alt="Introducción a SQL Databases">
+                      data-alt="Introducción a SQL Databases"
+                      data-i18n-data="alt:cert_tec21_alt">
                 <img src="assets/certs/tec21.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>SQL Databases</strong>
+                <strong data-i18n="cert_tec21_title">SQL Databases</strong>
                 <span class="muted small">2022 · 24 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec20.png"
-                      data-alt="SQL Server 2019 esencial">
+                      data-alt="SQL Server 2019 esencial"
+                      data-i18n-data="alt:cert_tec20_alt">
                 <img src="assets/certs/tec20.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>SQL Server 2019</strong>
+                <strong data-i18n="cert_tec20_title">SQL Server 2019</strong>
                 <span class="muted small">2022 · 2.5 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec19.png"
-                      data-alt="Seguridad en Linux: Server Hacking">
+                      data-alt="Seguridad en Linux: Server Hacking"
+                      data-i18n-data="alt:cert_tec19_alt">
                 <img src="assets/certs/tec19.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Seguridad Linux</strong>
+                <strong data-i18n="cert_tec19_title">Seguridad Linux</strong>
                 <span class="muted small">2021 · 15 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec18.png"
-                      data-alt="Linux Shell Scripting">
+                      data-alt="Linux Shell Scripting"
+                      data-i18n-data="alt:cert_tec18_alt">
                 <img src="assets/certs/tec18.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Linux Scripting</strong>
+                <strong data-i18n="cert_tec18_title">Linux Scripting</strong>
                 <span class="muted small">2021 · 12 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec17.png"
-                      data-alt="Seguridad Web: SQL Injection & XSS">
+                      data-alt="Seguridad Web: SQL Injection & XSS"
+                      data-i18n-data="alt:cert_tec17_alt">
                 <img src="assets/certs/tec17.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Seguridad Web</strong>
+                <strong data-i18n="cert_tec17_title">Seguridad Web</strong>
                 <span class="muted small">2021 · 15 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec16.png"
-                      data-alt="Ethical Hacking">
+                      data-alt="Ethical Hacking"
+                      data-i18n-data="alt:cert_tec16_alt">
                 <img src="assets/certs/tec16.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Ethical Hacking</strong>
+                <strong data-i18n="cert_tec16_title">Ethical Hacking</strong>
                 <span class="muted small">2021 · 18 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec15.png"
-                      data-alt="Redes Linux">
+                      data-alt="Redes Linux"
+                      data-i18n-data="alt:cert_tec15_alt">
                 <img src="assets/certs/tec15.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Redes Linux</strong>
+                <strong data-i18n="cert_tec15_title">Redes Linux</strong>
                 <span class="muted small">2021 · 12 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec14.png"
-                      data-alt="Seguridad en Redes: Network Hacking">
+                      data-alt="Seguridad en Redes: Network Hacking"
+                      data-i18n-data="alt:cert_tec14_alt">
                 <img src="assets/certs/tec14.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Seguridad Redes</strong>
+                <strong data-i18n="cert_tec14_title">Seguridad Redes</strong>
                 <span class="muted small">2021 · 15 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec13.png"
-                      data-alt="Informática Forense">
+                      data-alt="Informática Forense"
+                      data-i18n-data="alt:cert_tec13_alt">
                 <img src="assets/certs/tec13.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Informática Forense</strong>
+                <strong data-i18n="cert_tec13_title">Informática Forense</strong>
                 <span class="muted small">2021 · 15 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec12.png"
-                      data-alt="Seguridad en Windows: Server Hacking">
+                      data-alt="Seguridad en Windows: Server Hacking"
+                      data-i18n-data="alt:cert_tec12_alt">
                 <img src="assets/certs/tec12.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Seguridad Windows</strong>
+                <strong data-i18n="cert_tec12_title">Seguridad Windows</strong>
                 <span class="muted small">2021 · 15 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec11.png"
-                      data-alt="Mobile Hacking">
+                      data-alt="Mobile Hacking"
+                      data-i18n-data="alt:cert_tec11_alt">
                 <img src="assets/certs/tec11.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Mobile Hacking</strong>
+                <strong data-i18n="cert_tec11_title">Mobile Hacking</strong>
                 <span class="muted small">2021 · 12 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec10.png"
-                      data-alt="Protocolo HTTPS">
+                      data-alt="Protocolo HTTPS"
+                      data-i18n-data="alt:cert_tec10_alt">
                 <img src="assets/certs/tec10.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>HTTPS</strong>
+                <strong data-i18n="cert_tec10_title">HTTPS</strong>
                 <span class="muted small">2021 · 3 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec9.png"
-                      data-alt="Linux Administrador">
+                      data-alt="Linux Administrador"
+                      data-i18n-data="alt:cert_tec9_alt">
                 <img src="assets/certs/tec9.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Linux Administrador</strong>
+                <strong data-i18n="cert_tec9_title">Linux Administrador</strong>
                 <span class="muted small">2021 · 18 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec8.png"
-                      data-alt="Criptografía y Blockchain">
+                      data-alt="Criptografía y Blockchain"
+                      data-i18n-data="alt:cert_tec8_alt">
                 <img src="assets/certs/tec8.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Criptografía</strong>
+                <strong data-i18n="cert_tec8_title">Criptografía</strong>
                 <span class="muted small">2021 · 15 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec7.png"
-                      data-alt="Python Programming">
+                      data-alt="Python Programming"
+                      data-i18n-data="alt:cert_tec7_alt">
                 <img src="assets/certs/tec7.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Python Programming</strong>
+                <strong data-i18n="cert_tec7_title">Python Programming</strong>
                 <span class="muted small">2020 · 21 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec6.png"
-                      data-alt="Operador Linux">
+                      data-alt="Operador Linux"
+                      data-i18n-data="alt:cert_tec6_alt">
                 <img src="assets/certs/tec6.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Operador Linux</strong>
+                <strong data-i18n="cert_tec6_title">Operador Linux</strong>
                 <span class="muted small">2020 · 21 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec5.png"
-                      data-alt="Python para no programadores">
+                      data-alt="Python para no programadores"
+                      data-i18n-data="alt:cert_tec5_alt">
                 <img src="assets/certs/tec5.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Python</strong>
+                <strong data-i18n="cert_tec5_title">Python</strong>
                 <span class="muted small">2020 · 15 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec4.png"
-                      data-alt="Introducción a Redes">
+                      data-alt="Introducción a Redes"
+                      data-i18n-data="alt:cert_tec4_alt">
                 <img src="assets/certs/tec4.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Redes</strong>
+                <strong data-i18n="cert_tec4_title">Redes</strong>
                 <span class="muted small">2020 · 15 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec3.png"
-                      data-alt="Introducción a Linux">
+                      data-alt="Introducción a Linux"
+                      data-i18n-data="alt:cert_tec3_alt">
                 <img src="assets/certs/tec3.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Linux</strong>
+                <strong data-i18n="cert_tec3_title">Linux</strong>
                 <span class="muted small">2020 · 12 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec2.png"
-                      data-alt="Introducción a la Seguridad Informatica">
+                      data-alt="Introducción a la Seguridad Informatica"
+                      data-i18n-data="alt:cert_tec2_alt">
                 <img src="assets/certs/tec2.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Seguridad Informatica</strong>
+                <strong data-i18n="cert_tec2_title">Seguridad Informatica</strong>
                 <span class="muted small">2020 · 12 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/tec1.png"
-                      data-alt="Introducción a bases de datos y SQL">
+                      data-alt="Introducción a bases de datos y SQL"
+                      data-i18n-data="alt:cert_tec1_alt">
                 <img src="assets/certs/tec1.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Base de datos</strong>
+                <strong data-i18n="cert_tec1_title">Base de datos</strong>
                 <span class="muted small">2020 · 12 hrs</span>
               </figcaption>
             </figure>
+          
           </div>
         
-          <button class="btn btn-ghost btn-small cert-more">
-            Ver 27 más
-          </button>
+          <button class="btn btn-ghost btn-small cert-more" data-i18n="cert_more_27">Ver 27 más</button>
         </div>
       
         <!-- Geología e Ingeniería -->
@@ -1027,11 +1126,12 @@
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/ing15.png"
-                      data-alt="Geomecanica aplicada a la insdustria petrolera">
+                      data-alt="Geomecanica aplicada a la insdustria petrolera"
+                      data-i18n-data="alt:cert_ing15_alt">
                 <img src="assets/certs/ing15.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Geomecanica</strong>
+                <strong data-i18n="cert_ing15_title">Geomecanica</strong>
                 <span class="muted small">2015 · 40 hrs</span>
               </figcaption>
             </figure>
@@ -1039,179 +1139,194 @@
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/ing14.png"
-                      data-alt="StressCheck / CasingSeat">
+                      data-alt="StressCheck / CasingSeat"
+                      data-i18n-data="alt:cert_ing14_alt">
                 <img src="assets/certs/ing14.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>StressCheck / CasingSeat</strong>
+                <strong data-i18n="cert_ing14_title">StressCheck / CasingSeat</strong>
                 <span class="muted small">2015 · 40 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/ing13.png"
-                      data-alt="WellCat">
+                      data-alt="WellCat"
+                      data-i18n-data="alt:cert_ing13_alt">
                 <img src="assets/certs/ing13.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>WellCat</strong>
+                <strong data-i18n="cert_ing13_title">WellCat</strong>
                 <span class="muted small">2015 · 56 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/ing12.png"
-                      data-alt="OpenWells">
+                      data-alt="OpenWells"
+                      data-i18n-data="alt:cert_ing12_alt">
                 <img src="assets/certs/ing12.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>OpenWells</strong>
+                <strong data-i18n="cert_ing12_title">OpenWells</strong>
                 <span class="muted small">2014 · 24 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/ing11.png"
-                      data-alt="WellPlan R5000">
+                      data-alt="WellPlan R5000"
+                      data-i18n-data="alt:cert_ing11_alt">
                 <img src="assets/certs/ing11.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>WellPlan</strong>
+                <strong data-i18n="cert_ing11_title">WellPlan</strong>
                 <span class="muted small">2014 · 40 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/ing10.png"
-                      data-alt="Compass">
+                      data-alt="Compass"
+                      data-i18n-data="alt:cert_ing10_alt">
                 <img src="assets/certs/ing10.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Compass</strong>
+                <strong data-i18n="cert_ing10_title">Compass</strong>
                 <span class="muted small">2014 · 40 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/ing9.png"
-                      data-alt="DrillWorks Pro V5000">
+                      data-alt="DrillWorks Pro V5000"
+                      data-i18n-data="alt:cert_ing9_alt">
                 <img src="assets/certs/ing9.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>DrillWorks</strong>
+                <strong data-i18n="cert_ing9_title">DrillWorks</strong>
                 <span class="muted small">2014 · 40 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/ing8.png"
-                      data-alt="Excel Intermedio-Avanzado">
+                      data-alt="Excel Intermedio-Avanzado"
+                      data-i18n-data="alt:cert_ing8_alt">
                 <img src="assets/certs/ing8.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Excel</strong>
+                <strong data-i18n="cert_ing8_title">Excel</strong>
                 <span class="muted small">2014 · 40 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/ing7.png"
-                      data-alt="Perforación Direccional">
+                      data-alt="Perforación Direccional"
+                      data-i18n-data="alt:cert_ing7_alt">
                 <img src="assets/certs/ing7.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Perforación Direccional</strong>
+                <strong data-i18n="cert_ing7_title">Perforación Direccional</strong>
                 <span class="muted small">2013 · 40 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/ing6.png"
-                      data-alt="Cementación Básico">
+                      data-alt="Cementación Básico"
+                      data-i18n-data="alt:cert_ing6_alt">
                 <img src="assets/certs/ing6.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Cementación</strong>
+                <strong data-i18n="cert_ing6_title">Cementación</strong>
                 <span class="muted small">2013 · 32 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/ing5.png"
-                      data-alt="Fluidos de Perforación, Reparación y Completación de Pozos Petroleros">
+                      data-alt="Fluidos de Perforación, Reparación y Completación de Pozos Petroleros"
+                      data-i18n-data="alt:cert_ing5_alt">
                 <img src="assets/certs/ing5.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Fluidos de Perforación</strong>
+                <strong data-i18n="cert_ing5_title">Fluidos de Perforación</strong>
                 <span class="muted small">2013 · 40 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/ing4.png"
-                      data-alt="DIMS para Ingenieros">
+                      data-alt="DIMS para Ingenieros"
+                      data-i18n-data="alt:cert_ing4_alt">
                 <img src="assets/certs/ing4.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>DIMS</strong>
+                <strong data-i18n="cert_ing4_title">DIMS</strong>
                 <span class="muted small">2013 · 32 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/ing3.png"
-                      data-alt="Estratigrafía de Secuencias">
+                      data-alt="Estratigrafía de Secuencias"
+                      data-i18n-data="alt:cert_ing3_alt">
                 <img src="assets/certs/ing3.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Estratigrafía</strong>
+                <strong data-i18n="cert_ing3_title">Estratigrafía</strong>
                 <span class="muted small">2012 · 40 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/ing2.png"
-                      data-alt="Taller de Estudios Integrados y Geología Operacional">
+                      data-alt="Taller de Estudios Integrados y Geología Operacional"
+                      data-i18n-data="alt:cert_ing2_alt">
                 <img src="assets/certs/ing2.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>EEII y Geología Operacional</strong>
+                <strong data-i18n="cert_ing2_title">EEII y Geología Operacional</strong>
                 <span class="muted small">2008 · 16 hrs</span>
               </figcaption>
             </figure>
-
+          
             <figure class="media-card cert-item">
               <button class="media-btn js-lightbox"
                       data-src="assets/certs/ing1.png"
-                      data-alt="Geología del subsuelo">
+                      data-alt="Geología del subsuelo"
+                      data-i18n-data="alt:cert_ing1_alt">
                 <img src="assets/certs/ing1.png" loading="lazy">
               </button>
               <figcaption>
-                <strong>Geología del subsuelo</strong>
+                <strong data-i18n="cert_ing1_title">Geología del subsuelo</strong>
                 <span class="muted small">2008 · 24 hrs</span>
               </figcaption>
             </figure>
-         
+          
           </div>
         
-          <button class="btn btn-ghost btn-small cert-more">
-            Ver 11 mas
-          </button>
+          <button class="btn btn-ghost btn-small cert-more" data-i18n="cert_more_11">Ver 11 mas</button>
         </div>
+      
       </div>
     </section>
+
+
 
     <!-- =========================
          EDUCACIÓN
@@ -1219,56 +1334,64 @@
     <section id="educacion" class="section alt">
       <div class="container">
         <div class="section-head">
-          <h2>Educación</h2>
-          <p class="muted">Formación académica y técnica complementaria a mi experiencia profesional.</p>
+          <h2 data-i18n="sec_edu">Educación</h2>
+          <p class="muted" data-i18n="sec_edu_desc">Formación académica y técnica complementaria a mi experiencia profesional.</p>
         </div>
-      
+
         <div class="grid-2">
-        
           <article class="card edu-card">
             <div class="edu-top">
-              <h3>Seguridad Informática</h3>
-              <p class="muted">Educación IT - Argentina · 2020 – 2021 · <span class="edu-status">Finalizada</span></p>
+              <h3 data-i18n="edu1_title">Seguridad Informática</h3>
+              <p class="muted">
+                <span data-i18n="edu1_meta">Educación IT - Argentina · 2020 – 2021 ·</span>
+                <span class="edu-status" data-i18n="edu_status_done">Finalizada</span>
+              </p>
             </div>
-          
+
             <div class="edu-tags">
-              <span class="pill">Redes</span>
-              <span class="pill">Windows/Linux</span>
-              <span class="pill">Hacking ético</span>
-              <span class="pill">Forense</span>
+              <span class="pill" data-i18n="edu_tag_networks">Redes</span>
+              <span class="pill" data-i18n="edu_tag_winlinux">Windows/Linux</span>
+              <span class="pill" data-i18n="edu_tag_eh">Hacking ético</span>
+              <span class="pill" data-i18n="edu_tag_forensics">Forense</span>
               <span class="pill">Python</span>
             </div>
-            
+
             <button type="button"
                     class="btn btn-ghost btn-small js-lightbox"
                     data-src="assets/certs/cert-seg-inf.png"
-                    data-alt="Certificado - Ciberseguridad">
+                    data-alt="Certificado - Ciberseguridad"
+                    data-i18n="edu_btn_view_cert"
+                    data-i18n-data="alt:edu1_alt">
               Ver Certificado
             </button>
           </article>
-        
+
           <article class="card edu-card">
             <div class="edu-top">
-              <h3>Ingeniero Geólogo</h3>
-              <p class="muted">Universidad de Oriente - Venezuela · 2004 – 2011 · <span class="edu-status">Finalizada</span></p>
+              <h3 data-i18n="edu2_title">Ingeniero Geólogo</h3>
+              <p class="muted">
+                <span data-i18n="edu2_meta">Universidad de Oriente - Venezuela · 2004 – 2011 ·</span>
+                <span class="edu-status" data-i18n="edu_status_done">Finalizada</span>
+              </p>
             </div>
-          
+
             <div class="edu-tags">
-              <span class="pill">Geología</span>
-              <span class="pill">Ingeniería</span>              
+              <span class="pill" data-i18n="edu_tag_geology">Geología</span>
+              <span class="pill" data-i18n="edu_tag_engineering">Ingeniería</span>
               <span class="pill">Oil &amp; Gas</span>
-              <span class="pill">Reservorios</span>
-              <span class="pill">Perforación</span>
+              <span class="pill" data-i18n="edu_tag_reservoirs">Reservorios</span>
+              <span class="pill" data-i18n="edu_tag_drilling">Perforación</span>
             </div>
-            
+
             <button type="button"
                     class="btn btn-ghost btn-small js-lightbox"
                     data-src="assets/certs/cert-ing.jpg"
-                    data-alt="Título - Ingeniero Geólogo">
+                    data-alt="Título - Ingeniero Geólogo"
+                    data-i18n="edu_btn_view_title"
+                    data-i18n-data="alt:edu2_alt">
               Ver Título
             </button>
           </article>
-        
         </div>
       </div>
     </section>
@@ -1279,24 +1402,31 @@
     <section id="contacto" class="section alt">
       <div class="container">
         <div class="section-head">
-          <h2>Contacto</h2>
-          <p class="muted">
+          <h2 data-i18n="sec_contacto">Contacto</h2>
+          <p class="muted" data-i18n="sec_contacto_desc">
             Podés contactarme para oportunidades laborales, proyectos o colaboraciones. Estoy abierto a conversar y aportar valor.
           </p>
         </div>
-      
+
         <div class="card contact-box">
           <a class="btn btn-primary"
-             href="mailto:douglasmendoza88@gmail.com?subject=Contacto%20desde%20menfig.com">
+             href="mailto:douglasmendoza88@gmail.com?subject=Contacto%20desde%20menfig.com"
+             data-i18n="contact_send_email">
             Enviar email
           </a>
-        
+
           <div class="divider"></div>
-        
+
           <ul class="contact-list">
-            <li><strong>Email:</strong> <a href="mailto:douglasmendoza88@gmail.com?subject=Contacto%20desde%20menfig.com">douglasmendoza88@gmail.com</a></li>
-            <li><strong>WhatsApp:</strong> <a href="https://wa.me/5492995300095" target="_blank">+54 9 299 530-0095</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/douglas-mendoza-figueredo" target="_blank">linkedin.com/in/douglas-mendoza-figueredo</a></li>
+            <li><strong data-i18n="contact_label_email">Email:</strong>
+              <a href="mailto:douglasmendoza88@gmail.com?subject=Contacto%20desde%20menfig.com">douglasmendoza88@gmail.com</a>
+            </li>
+            <li><strong data-i18n="contact_label_whatsapp">WhatsApp:</strong>
+              <a href="https://wa.me/5492995300095" target="_blank">+54 9 299 530-0095</a>
+            </li>
+            <li><strong data-i18n="contact_label_linkedin">LinkedIn:</strong>
+              <a href="https://linkedin.com/in/douglas-mendoza-figueredo" target="_blank">linkedin.com/in/douglas-mendoza-figueredo</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -1304,37 +1434,39 @@
 
   </main>
 
-
   <!-- =====================================================
        Footer
   ====================================================== -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="muted small">© <span id="year"></span> Douglas Mendoza. Todos los derechos reservados.</p>
-      <a class="small link" href="#hero">Volver arriba ↑</a>
+      <p class="muted small">
+        © <span id="year"></span> Douglas Mendoza. <span data-i18n="footer_rights">Todos los derechos reservados.</span>
+      </p>
+      <a class="small link" href="#hero" data-i18n="footer_back_top">Volver arriba ↑</a>
     </div>
   </footer>
 
   <!-- =====================================================
        Modals
   ====================================================== -->
-  <!-- Lightbox (proyectos / certificaciones) -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-backdrop" data-close></div>
-    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Vista previa">
-      <button class="lightbox-close" type="button" aria-label="Cerrar" data-close>✕</button>
+    <div class="lightbox-dialog"
+         role="dialog"
+         aria-modal="true"
+         aria-label="Vista previa"
+         data-i18n-attr="aria-label:modal_preview_aria">
+      <button class="lightbox-close" type="button" aria-label="Cerrar" data-close data-i18n-attr="aria-label:modal_close_aria">✕</button>
       <img class="lightbox-img" id="lightboxImg" alt="" />
       <p class="lightbox-caption" id="lightboxCaption"></p>
     </div>
   </div>
 
-  <!-- Modal para zoom (avatar + logos) -->
   <div id="img-modal" class="img-modal" aria-hidden="true">
-    <button type="button" class="img-close" aria-label="Cerrar">×</button>
+    <button type="button" class="img-close" aria-label="Cerrar" data-i18n-attr="aria-label:modal_close_aria">×</button>
     <img id="img-modal-src" class="img-modal-content" alt="">
   </div>
 
- 
   <!-- =====================================================
        JS
   ====================================================== -->

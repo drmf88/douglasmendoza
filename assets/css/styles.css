@@ -1033,3 +1033,53 @@ h2::after{
   .gallery{ grid-template-columns: 1fr; }
   .project-media{ grid-template-columns: 1fr; }
 }
+
+/* =========================
+   Language switcher
+========================= */
+.lang{ position: relative; display: inline-flex; align-items: center; }
+
+.lang-btn{ min-width: 52px; justify-content: center; }
+
+.lang-menu{
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 200px;
+  padding: 10px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(11,15,23,.92);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  display: none;
+  gap: 8px;
+  z-index: 3000;
+}
+
+.lang.is-open .lang-menu{ display: grid; }
+
+.lang-item{
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lang-item:hover,
+.lang-item:focus-visible{
+  color: var(--text);
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.10);
+}
+
+.lang-mobile{
+  margin-top: 10px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
