@@ -43,15 +43,19 @@
       };
 
       document.addEventListener('click', (e) => {
-        if (e.target.closest('.nav-panel a')) {
-          closeMobileNav();
+        // cerrar (x) o click en overlay
+        if (e.target.matches('[data-close]') || e.target === lightbox) {
+          closeLightbox();
           return;
         }
-
-        if (navMobile.open && !e.target.closest('#navMobile')) {
-          closeMobileNav();
+      
+        // abrir desde thumbs
+        const btn = e.target.closest('.js-lightbox');
+        if (btn) {
+          openLightbox(btn.dataset.src, btn.dataset.alt);
         }
       });
+
 
       document.addEventListener(
         'touchstart',
@@ -212,11 +216,11 @@
       const modal = $('#img-modal');
       const modalImg = $('#img-modal-src');
       const closeBtn = modal ? $('.img-close', modal) : null;
-
+    
       if (!modal || !modalImg || !closeBtn) return;
-
+    
       const isOpen = () => modal.classList.contains('is-open');
-
+    
       const openModal = (src, alt) => {
         if (!src) return;
         modal.classList.add('is-open');
@@ -225,7 +229,7 @@
         modalImg.alt = alt || 'Logo';
         document.body.style.overflow = 'hidden';
       };
-
+    
       const closeModal = () => {
         modal.classList.remove('is-open');
         modal.setAttribute('aria-hidden', 'true');
@@ -233,29 +237,21 @@
         modalImg.alt = '';
         document.body.style.overflow = '';
       };
-
+    
+      // ✅ SOLO logos e imágenes marcadas como zoomable
       $$('.xp-logo img, .zoomable').forEach((img) => {
         img.addEventListener('click', () => openModal(img.src, img.alt));
       });
-
-      // OJO: si querés usar lightbox y modal por separado, evitá duplicar .js-lightbox aquí
-      document.addEventListener('click', (e) => {
-        const btn = e.target.closest('.js-lightbox');
-        if (!btn) return;
-
-        const src = btn.dataset.src;
-        const alt = btn.dataset.alt || 'Imagen';
-        openModal(src, alt);
-      });
-
+    
       closeBtn.addEventListener('click', closeModal);
 
       modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal();
       });
-
+    
       return { isOpen, closeModal };
     }
+
 
     /* ==========================================================
        6) Kicker dinámico (rotación de frases) - i18n ready
@@ -334,15 +330,24 @@
     function initGlobalEscapeHandlers(deps) {
       document.addEventListener('keydown', (e) => {
         if (e.key !== 'Escape') return;
-
+      
+        // 1) Cerrar lightbox primero
+        if (deps.lightbox?.isOpen?.()) {
+          deps.lightbox.closeLightbox();
+          return;
+        }
+      
+        // 2) Cerrar modal de logos
         if (deps.imageModal?.isOpen?.()) {
           deps.imageModal.closeModal();
           return;
         }
-
+      
+        // 3) Cerrar menú móvil
         deps.mobileNav?.closeMobileNav?.();
       });
     }
+
 
     /* ==========================================================
        9) Idiomas (ES / EN / PT-BR)
@@ -476,31 +481,40 @@
           sec_proyectos_desc:
             "Soluciones reales desarrolladas y operadas en entornos productivos. Automatización, monitoreo y herramientas orientadas a reducir incidentes y mejorar la eficiencia operativa.",
         
-          proj1_tag: "Automatización",
-          proj1_title: "Aplicación de escritorio de soporte",
-          proj1_li1: "Automatiza tareas repetitivas y consultas a múltiples fuentes.",
-          proj1_li2: "Centraliza bases y utilidades en una sola interfaz para el equipo de soporte.",
-          proj1_li3: "Enfoque en estabilidad: menos pasos manuales y menos errores operativos.",
-          proj1_result: "menos tareas manuales",
-          proj1_img1_alt: "Captura de la app interna de soporte",
-          proj1_img1_alt_img: "Captura app soporte",
-          proj1_img2_alt: "Otra captura de la app interna de soporte",
-          proj1_img2_alt_img: "Captura app soporte 2",
-        
-          proj2_tag: "Monitoreo",
-          proj2_title: "Dashboard de monitoreo operativo",
-          proj2_li1: "Monitoreo de PCs de operaciones de pozo (Drilling, Workover, Pulling).",
-          proj2_li2: "Métricas y alertas para apps críticas (OpenWells, Autosync, YClick).",
-          proj2_li3: "Detección temprana para reducir incidentes y tiempos de indisponibilidad.",
-          proj2_result: "detección temprana",
-          proj2_img1_alt: "Dashboard en Grafana",
-          proj2_img1_alt_img: "Dashboard Grafana",
-          proj2_img2_alt: "Dashboard en Grafana",
-          proj2_img2_alt_img: "Dashboard Grafana 2",
-        
-          proj3_tag: "Demo",
-          proj3_desc: "Demo breve",
-          proj3_iframe_title: "Demo del proyecto",
+          proj1_tag: "Analítica",
+          proj1_title: "Analítica de Soporte Operativo",
+          proj1_li1: "Panel de KPIs para INC/REQ: volumen, estados y SLA promedio.",
+          proj1_li2: "Análisis Pareto, tendencias y tortas por aplicación / CI / descripción.",
+          proj1_li3: "Soporta drill-down: click en gráficos para ver el detalle y acelerar decisiones.",
+          proj1_result: "visibilidad operativa y toma de decisiones",
+          proj1_img1_alt: "Analítica de soporte (Totalizadores)",
+          proj1_img1_alt_img: "Analítica de soporte (Totalizadores)",
+          proj1_img2_alt: "KPIs y análisis (Pareto / tendencias / tortas)",
+          proj1_img2_alt_img: "KPIs y análisis (Pareto / tendencias / tortas)",
+
+          proj2_tag: "Automatización",
+          proj2_title: "Aplicación de escritorio de soporte",
+          proj2_li1: "Automatiza tareas repetitivas y consultas a múltiples fuentes.",
+          proj2_li2: "Centraliza bases y utilidades en una sola interfaz para el equipo de soporte.",
+          proj2_li3: "Enfoque en estabilidad: menos pasos manuales y menos errores operativos.",
+          proj2_result: "menos tareas manuales",
+          proj2_img1_alt: "App interna de soporte (Consultas, comando, ABM, Scritps)",
+          proj2_img1_alt_img: "App interna de soporte (Consultas, comando, ABM, Scritps)",
+          proj2_img2_alt: "App interna de soporte (Acerca de)",
+          proj2_img2_alt_img: "App interna de soporte (Acerca de)",
+
+          proj3_tag: "Monitoreo",
+          proj3_title: "Dashboard de monitoreo operativo",
+          proj3_li1: "Monitoreo de PCs de operaciones de pozo (Drilling, Workover, Pulling).",
+          proj3_li2: "Métricas y alertas para apps críticas (OpenWells, Autosync, YClick).",
+          proj3_li3: "Detección temprana para reducir incidentes y tiempos de indisponibilidad.",
+          proj3_result: "detección temprana",
+          proj3_img1_alt: "Estado Operativo de Equipos y Aplicaciones",
+          proj3_img1_alt_img: "Estado Operativo de Equipos y Aplicaciones",
+          proj3_img2_alt: "Historia del Equipo",
+          proj3_img2_alt_img: "Historia del Equipo",
+
+
           label_tip: "Tip:",
           label_stack: "Stack:",
           label_resultado: "Resultado:",
@@ -766,31 +780,39 @@
           sec_proyectos_desc:
             "Real solutions developed and operated in production environments. Automation, monitoring, and tools aimed at reducing incidents and improving operational efficiency.",
         
-          proj1_tag: "Automation",
-          proj1_title: "Support Desktop Application",
-          proj1_li1: "Automates repetitive tasks and queries across multiple sources.",
-          proj1_li2: "Centralizes databases and utilities in a single interface for the support team.",
-          proj1_li3: "Stability-focused: fewer manual steps and fewer operational errors.",
-          proj1_result: "fewer manual tasks",
-          proj1_img1_alt: "Screenshot of the internal support app",
-          proj1_img1_alt_img: "Support app screenshot",
-          proj1_img2_alt: "Another screenshot of the internal support app",
-          proj1_img2_alt_img: "Support app screenshot 2",
-        
-          proj2_tag: "Monitoring",
-          proj2_title: "Operational Monitoring Dashboard",
-          proj2_li1: "Monitoring of well operations PCs (Drilling, Workover, Pulling).",
-          proj2_li2: "Metrics and alerts for critical apps (OpenWells, Autosync, YClick).",
-          proj2_li3: "Early detection to reduce incidents and downtime.",
-          proj2_result: "early detection",
-          proj2_img1_alt: "Grafana dashboard",
-          proj2_img1_alt_img: "Grafana dashboard",
-          proj2_img2_alt: "Grafana dashboard",
-          proj2_img2_alt_img: "Grafana dashboard 2",
-        
-          proj3_tag: "Demo",
-          proj3_desc: "Short demo",
-          proj3_iframe_title: "Project demo",
+          proj1_tag: "Analytics",
+          proj1_title: "Operational Support Analytics",
+          proj1_li1: "KPI panel for INC/REQ: volume, status distribution, and average SLA.",
+          proj1_li2: "Pareto analysis, trends, and donut charts by application / CI / description.",
+          proj1_li3: "Drill-down support: click charts to open detailed records and speed up decisions.",
+          proj1_result: "operational visibility and decision-making",
+          proj1_img1_alt: "Support Analytics (Totals)",
+          proj1_img1_alt_img: "Support Analytics (Totals)",
+          proj1_img2_alt: "KPIs & Analytics (Pareto / Trends / Donuts)",
+          proj1_img2_alt_img: "KPIs & Analytics (Pareto / Trends / Donuts)",
+
+          proj2_tag: "Automation",
+          proj2_title: "Support Desktop Application",
+          proj2_li1: "Automates repetitive tasks and queries across multiple sources.",
+          proj2_li2: "Centralizes databases and utilities in a single interface for the support team.",
+          proj2_li3: "Stability-focused: fewer manual steps and fewer operational errors.",
+          proj2_result: "fewer manual tasks",
+          proj2_img1_alt: "Internal Support App (Queries, Commands, CRUD, Scripts)",
+          proj2_img1_alt_img: "Internal Support App (Queries, Commands, CRUD, Scripts)",
+          proj2_img2_alt: "Internal Support App (About)",
+          proj2_img2_alt_img: "Internal Support App (About)",
+
+          proj3_tag: "Monitoring",
+          proj3_title: "Operational Monitoring Dashboard",
+          proj3_li1: "Monitoring of well operations PCs (Drilling, Workover, Pulling).",
+          proj3_li2: "Metrics and alerts for critical apps (OpenWells, Autosync, YClick).",
+          proj3_li3: "Early detection to reduce incidents and downtime.",
+          proj3_result: "early detection",
+          proj3_img1_alt: "Operational Status of Systems and Applications",
+          proj3_img1_alt_img: "Operational Status of Systems and Applications",
+          proj3_img2_alt: "Equipment History",
+          proj3_img2_alt_img: "Equipment History",
+
           label_tip: "Tip:",
           label_stack: "Stack:",
           label_resultado: "Outcome:",
@@ -1050,31 +1072,39 @@
           sec_proyectos_desc:
             "Soluções reais desenvolvidas e operadas em ambientes produtivos. Automação, monitoramento e ferramentas para reduzir incidentes e melhorar a eficiência operacional.",
         
-          proj1_tag: "Automação",
-          proj1_title: "Aplicação desktop de suporte",
-          proj1_li1: "Automatiza tarefas repetitivas e consultas em múltiplas fontes.",
-          proj1_li2: "Centraliza bancos e utilitários em uma única interface para a equipe de suporte.",
-          proj1_li3: "Foco em estabilidade: menos passos manuais e menos erros operacionais.",
-          proj1_result: "menos tarefas manuais",
-          proj1_img1_alt: "Captura da aplicação interna de suporte",
-          proj1_img1_alt_img: "Captura app suporte",
-          proj1_img2_alt: "Outra captura da aplicação interna de suporte",
-          proj1_img2_alt_img: "Captura app suporte 2",
-        
-          proj2_tag: "Monitoramento",
-          proj2_title: "Dashboard de monitoramento operacional",
-          proj2_li1: "Monitoramento de PCs de operações de poço (Drilling, Workover, Pulling).",
-          proj2_li2: "Métricas e alertas para apps críticas (OpenWells, Autosync, YClick).",
-          proj2_li3: "Detecção precoce para reduzir incidentes e indisponibilidade.",
-          proj2_result: "detecção precoce",
-          proj2_img1_alt: "Dashboard no Grafana",
-          proj2_img1_alt_img: "Dashboard Grafana",
-          proj2_img2_alt: "Dashboard no Grafana",
-          proj2_img2_alt_img: "Dashboard Grafana 2",
-        
-          proj3_tag: "Demo",
-          proj3_desc: "Demo curta",
-          proj3_iframe_title: "Demo do projeto",
+          proj1_tag: "Analytics",
+          proj1_title: "Analítica de Suporte Operacional",
+          proj1_li1: "Painel de KPIs para INC/REQ: volume, status e SLA médio.",
+          proj1_li2: "Análise de Pareto, tendências e gráficos de rosca por aplicação / CI / descrição.",
+          proj1_li3: "Suporta drill-down: clique nos gráficos para abrir detalhes e acelerar decisões.",
+          proj1_result: "visibilidade operacional e tomada de decisão",
+          proj1_img1_alt: "Analítica de Suporte (Totalizadores)",
+          proj1_img1_alt_img: "Analítica de Suporte (Totalizadores)",
+          proj1_img2_alt: "KPIs e Análises (Pareto / Tendências / Roscas)",
+          proj1_img2_alt_img: "KPIs e Análises (Pareto / Tendências / Roscas)",
+
+          proj2_tag: "Automação",
+          proj2_title: "Aplicação desktop de suporte",
+          proj2_li1: "Automatiza tarefas repetitivas e consultas em múltiplas fontes.",
+          proj2_li2: "Centraliza bancos e utilitários em uma única interface para a equipe de suporte.",
+          proj2_li3: "Foco em estabilidade: menos passos manuais e menos erros operacionais.",
+          proj2_result: "menos tarefas manuais",
+          proj2_img1_alt: "Aplicação Interna de Suporte (Consultas, Comandos, CRUD, Scripts)",
+          proj2_img1_alt_img: "Aplicação Interna de Suporte (Consultas, Comandos, CRUD, Scripts)",
+          proj2_img2_alt: "Aplicação Interna de Suporte (Sobre)",
+          proj2_img2_alt_img: "Aplicação Interna de Suporte (Sobre)",
+
+          proj3_tag: "Monitoramento",
+          proj3_title: "Dashboard de monitoramento operacional",
+          proj3_li1: "Monitoramento de PCs de operações de poço (Drilling, Workover, Pulling).",
+          proj3_li2: "Métricas e alertas para apps críticas (OpenWells, Autosync, YClick).",
+          proj3_li3: "Detecção precoce para reduzir incidentes e indisponibilidade.",
+          proj3_result: "detecção precoce",
+          proj3_img1_alt: "Estado Operacional de Equipamentos e Aplicações",
+          proj3_img1_alt_img: "Estado Operacional de Equipamentos e Aplicações",
+          proj3_img2_alt: "Histórico do Equipamento",
+          proj3_img2_alt_img: "Histórico do Equipamento",
+
           label_tip: "Dica:",
           label_stack: "Stack:",
           label_resultado: "Resultado:",
@@ -1329,6 +1359,7 @@
       initYear();
 
       const mobileNav = initMobileNav();
+      const lightbox = initLightbox();
       const imageModal = initImageModal();
 
       initCertTabs();
@@ -1338,7 +1369,7 @@
       initKickerDynamic();
       initH1Typing();
 
-      initGlobalEscapeHandlers({ mobileNav, imageModal });
+      initGlobalEscapeHandlers({ mobileNav, imageModal, lightbox });
     }
 
     if (document.readyState === 'loading') {

@@ -889,12 +889,13 @@ h2::after{
 .no-scroll{ overflow:hidden; }
 
 .lightbox{
+  display: none;
   position: fixed;
   inset: 0;
-  display:none;
+  padding: 12px;
   z-index: 1000;
 }
-.lightbox.open{ display:block; }
+.lightbox.open{ display: grid; place-items: center; }
 
 .lightbox-backdrop{
   position:absolute;
@@ -904,13 +905,16 @@ h2::after{
 
 .lightbox-dialog{
   position: relative;
-  width: min(1200px, 96vw);
-  margin: 4vh auto;
+  width: min(1400px, 98vw);
+  max-height: 92vh;
+  margin: 0;
   background: rgba(16,24,40,.92);
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 14px;
   box-shadow: var(--shadow);
+  display: grid;
+  place-items: center;
 }
 
 .lightbox-close{
@@ -927,22 +931,33 @@ h2::after{
 }
 
 .lightbox-img{
-  width: auto;
-  max-width: 85vw;
+  width: 100%;
+  max-width: 98vw;
   height: auto;
-  max-height: 80vh;
+  max-height: 88vh;
   object-fit: contain;
   border-radius: 16px;
   display: block;
   background: rgba(0,0,0,.25);
   border: 1px solid var(--line);
-  margin: auto;
+  margin: 0 auto;
+}
+
+/* En desktop grande, aún más aprovechamiento */
+@media (min-width: 900px){
+  .lightbox-dialog{ width: min(1400px, 98vw); }
+  .lightbox-img{ max-height: 88vh; }
 }
 
 .lightbox-caption{
   margin: 10px 4px 2px;
   color: var(--muted);
   font-size: 13px;
+}
+
+@media (max-width: 600px){
+  #lightbox{ padding: 8px; }
+  .lightbox-img{ max-height: 86vh; }
 }
 
 /* ==========================================================
@@ -963,10 +978,13 @@ h2::after{
 .img-modal.is-open{ display: flex; }
 
 .img-modal-content{
-  max-width: min(720px, 92vw);
+  max-width: min(1200px, 96vw);
   max-height: 92vh;
   border-radius: 14px;
   animation: zoomIn .22s ease;
+}
+@media (min-width: 900px){
+  .img-modal-content{ max-width: min(1400px, 96vw); }
 }
 
 @keyframes zoomIn{
