@@ -1301,21 +1301,35 @@
 
       const applyLang = (lang) => {
         const dict = i18n[lang] || i18n.es;
-
+      
         root.lang = lang.startsWith('pt') ? 'pt-BR' : lang;
         localStorage.setItem('lang', lang);
-
+      
         window.__i18nDict = dict;
-
+      
         setTextNodes(dict);
         setAttrNodes(dict);
         setDataNodes(dict);
         refreshKickerWords();
-
+      
         // etiqueta ES/EN/PT del botón (desktop)
         const label = (lang === 'pt-BR') ? 'PT' : lang.toUpperCase();
         $$('.lang-btn').forEach((btn) => (btn.textContent = label));
+      
+        // ====== CV PDF según idioma ======
+        const cv = document.getElementById('cvDownload');
+        if (cv) {
+          // lang puede ser: "es", "en", "pt-BR"
+          const isSpanish = (lang === 'es');
+          const file = isSpanish
+            ? 'assets/pdf/CV_DOUGLAS-MENDOZA.pdf'
+            : 'assets/pdf/CS_DOUGLAS-MENDOZA.pdf';
+        
+          cv.href = file;
+          cv.setAttribute('download', file.split('/').pop());
+        }
       };
+
 
       // idioma inicial
       const saved = localStorage.getItem('lang');
