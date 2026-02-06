@@ -514,7 +514,17 @@
           proj3_img2_alt: "Historia del Equipo",
           proj3_img2_alt_img: "Historia del Equipo",
 
-
+          proj4_tag: "Perforación",
+          proj4_title: "VCDE – Macolla Cacique Chaima",
+          proj4_li1: "Visualización y definición del desarrollo del pad bajo metodología FEL.",
+          proj4_li2: "Ingeniería de pozo y planificación operativa (programas, materiales y servicios).",
+          proj4_li3: "Ejecución y control de KPIs, NPT y performance de perforación.",
+          proj4_result: "control operativo, minimizar riesgos",
+          proj4_img1_alt: "Vista PAD en Compass",
+          proj4_img1_alt_img: "Vista PAD en Compass",
+          proj4_img2_alt: "Vista 2D y 3D de las trayectorias",
+          proj4_img2_alt_img: "Vista 2D y 3D de las trayectorias",
+          
           label_tip: "Tip:",
           label_stack: "Stack:",
           label_resultado: "Resultado:",
@@ -813,6 +823,17 @@
           proj3_img2_alt: "Equipment History",
           proj3_img2_alt_img: "Equipment History",
 
+          proj4_tag: "Drilling",
+          proj4_title: "VCDE – Cacique Chaima Pad",
+          proj4_li1: "Visualization and definition of pad development using FEL methodology.",
+          proj4_li2: "Well engineering and operational planning (programs, materials and services).",
+          proj4_li3: "Execution and monitoring of KPIs, NPT and drilling performance.",
+          proj4_result: "operational control, risk mitigation",
+          proj4_img1_alt: "PAD view in Compass",
+          proj4_img1_alt_img: "PAD view in Compass",
+          proj4_img2_alt: "2D and 3D trajectory view",
+          proj4_img2_alt_img: "2D and 3D trajectory view",
+
           label_tip: "Tip:",
           label_stack: "Stack:",
           label_resultado: "Outcome:",
@@ -1105,6 +1126,17 @@
           proj3_img2_alt: "Histórico do Equipamento",
           proj3_img2_alt_img: "Histórico do Equipamento",
 
+          proj4_tag: "Perfuração",
+          proj4_title: "VCDE – Macolla Cacique Chaima",
+          proj4_li1: "Visualização e definição do desenvolvimento do pad utilizando a metodologia FEL.",
+          proj4_li2: "Engenharia de poço e planejamento operacional (programas, materiais e serviços).",
+          proj4_li3: "Execução e monitoramento de KPIs, NPT e performance de perfuração.",
+          proj4_result: "controle operacional, mitigação de riscos",
+          proj4_img1_alt: "Visão do PAD no Compass",
+          proj4_img1_alt_img: "Visão do PAD no Compass",
+          proj4_img2_alt: "Visão 2D e 3D das trajetórias",
+          proj4_img2_alt_img: "Visão 2D e 3D das trajetórias",
+
           label_tip: "Dica:",
           label_stack: "Stack:",
           label_resultado: "Resultado:",
@@ -1311,6 +1343,7 @@
         setAttrNodes(dict);
         setDataNodes(dict);
         refreshKickerWords();
+        initKickerDynamic();
       
         // etiqueta ES/EN/PT del botón (desktop)
         const label = (lang === 'pt-BR') ? 'PT' : lang.toUpperCase();
