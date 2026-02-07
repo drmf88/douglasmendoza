@@ -1136,3 +1136,13 @@ h2::after{
   border-top: 1px solid var(--line);
   padding-top: 10px;
 }
+
+/* Forzar recorte visual en miniatura */
+.project:nth-child(4) .thumb img{
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.35);
+}
+
+
+
